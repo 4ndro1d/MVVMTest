@@ -2,13 +2,14 @@ package com.alldev.mvvmtest.di
 
 import com.alldev.mvvmtest.data.repository.QuoteRemoteSource
 import com.alldev.mvvmtest.data.repository.QuoteRepositoryImpl
-import com.alldev.mvvmtest.viewmodel.QuoteViewModel
 import com.alldev.mvvmtest.domain.repository.QuoteRepository
 import com.alldev.mvvmtest.domain.usecase.GetQuoteUseCase
 import com.alldev.mvvmtest.presentation.QuotePresenter
 import com.alldev.mvvmtest.presentation.QuoteView
 import com.alldev.mvvmtest.remote.api.QuoteApi
+import com.alldev.mvvmtest.remote.mapper.RemoteQuoteMapper
 import com.alldev.mvvmtest.remote.repository.QuoteRemoteSourceImpl
+import com.alldev.mvvmtest.viewmodel.QuoteViewModel
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -26,7 +27,8 @@ val appModule = module {
             .create(QuoteApi::class.java)
     }
 
-    single<QuoteRemoteSource> { QuoteRemoteSourceImpl(get()) }
+    single { RemoteQuoteMapper() }
+    single<QuoteRemoteSource> { QuoteRemoteSourceImpl(get(), get()) }
     single<QuoteRepository> { QuoteRepositoryImpl(get()) }
     single { GetQuoteUseCase(get()) }
     single { (view: QuoteView) -> QuotePresenter(view, get()) }
