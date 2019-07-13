@@ -2,7 +2,7 @@ package com.alldev.mvvmtest.di
 
 import com.alldev.mvvmtest.data.repository.QuoteRemoteSource
 import com.alldev.mvvmtest.data.repository.QuoteRepositoryImpl
-import com.alldev.mvvmtest.domain.QuoteViewModel
+import com.alldev.mvvmtest.viewmodel.QuoteViewModel
 import com.alldev.mvvmtest.domain.repository.QuoteRepository
 import com.alldev.mvvmtest.domain.usecase.GetQuoteUseCase
 import com.alldev.mvvmtest.presentation.QuotePresenter

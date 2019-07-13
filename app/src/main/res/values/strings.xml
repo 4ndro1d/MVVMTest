@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">MVVMTest</string>
-    <string name="quote">Quote</string>
+    <string name="viewModel">ViewModel</string>
+    <string name="presenter">Presenter</string>
 </resources>
